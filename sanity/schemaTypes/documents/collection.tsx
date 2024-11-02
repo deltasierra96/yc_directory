@@ -3,9 +3,8 @@ import { defineField, defineType } from "sanity";
 import { PackageIcon } from "@sanity/icons";
 import { getExtension } from "@sanity/asset-utils";
 import pluralize from "pluralize-esm";
-import CollectionHiddenInput from "../../components/inputs/CollectionHidden";
-import ShopifyIcon from "../../components/icons/Shopify";
-import ShopifyDocumentStatus from "../../components/media/ShopifyDocumentStatus";
+import ShopifyDocumentStatus from "@/components/media/ShopifyDocumentStatus";
+import CollectionHiddenInput from "@/components/inputs/CollectionHidden";
 
 const GROUPS = [
   {
@@ -19,8 +18,7 @@ const GROUPS = [
   },
   {
     name: "shopifySync",
-    title: "Shopify sync",
-    icon: ShopifyIcon
+    title: "Shopify sync"
   },
   {
     name: "seo",
@@ -28,7 +26,7 @@ const GROUPS = [
   }
 ];
 
-export const collection = defineType({
+export default defineType({
   name: "collection",
   title: "Collection",
   type: "document",
