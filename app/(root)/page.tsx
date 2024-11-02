@@ -5,7 +5,7 @@ import { sanityFetch, SanityLive } from "@/sanity/lib/live";
 import { auth } from "@/auth";
 
 export default async function Home({
-  searchParams,
+  searchParams
 }: {
   searchParams: Promise<{ query?: string }>;
 }) {
@@ -14,10 +14,13 @@ export default async function Home({
 
   const session = await auth();
 
+  console.log("session", session);
+
   console.log(session?.id);
 
   const { data: posts } = await sanityFetch({ query: STARTUPS_QUERY, params });
 
+  console.log("posts", posts);
   return (
     <>
       <section className="pink_container">
