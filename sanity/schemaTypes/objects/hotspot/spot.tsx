@@ -1,7 +1,7 @@
 import React from "react";
 import { defineField } from "sanity";
 
-import ShopifyDocumentStatus from "../../../../components/media/ShopifyDocumentStatus";
+import ShopifyDocumentStatus from "../../../components/media/ShopifyDocumentStatus";
 
 export default defineField({
   name: "spot",

@@ -1,4 +1,4 @@
-import PlaceholderStringInput from "../../../../components/inputs/PlaceholderString";
+import PlaceholderStringInput from "../../../components/inputs/PlaceholderString";
 
 const placeholderString = {
   name: "placeholderString",

@@ -3,8 +3,8 @@ import { defineField, defineType } from "sanity";
 import { PackageIcon } from "@sanity/icons";
 import { getExtension } from "@sanity/asset-utils";
 import pluralize from "pluralize-esm";
-import ShopifyDocumentStatus from "@/components/media/ShopifyDocumentStatus";
-import CollectionHiddenInput from "@/components/inputs/CollectionHidden";
+import ShopifyDocumentStatus from "../../components/media/ShopifyDocumentStatus";
+import CollectionHiddenInput from "../../components/inputs/CollectionHidden";
 
 const GROUPS = [
   {

@@ -1,4 +1,4 @@
-import ColorThemePreview from "@/components/media/ColorTheme";
+import ColorThemePreview from "../../components/media/ColorTheme";
 import { IceCreamIcon } from "@sanity/icons";
 import React from "react";
 import { defineField, defineType } from "sanity";
