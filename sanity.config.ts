@@ -5,6 +5,10 @@
  */
 
 import { visionTool } from "@sanity/vision";
+import { colorInput } from "@sanity/color-input";
+import { imageHotspotArrayPlugin } from "sanity-plugin-hotspot-array";
+import { media, mediaAssetSource } from "sanity-plugin-media";
+
 import { defineConfig } from "sanity";
 import { structureTool } from "sanity/structure";
 
@@ -14,6 +18,7 @@ import { schemaTypes } from "./sanity/schemaTypes";
 // import { structure } from "./sanity/structure";
 import { markdownSchema } from "sanity-plugin-markdown";
 import { structure } from "./sanity/desk";
+import { customDocumentActions } from "./plugins/customDocumentActions";
 
 export default defineConfig({
   basePath: "/studio",
@@ -25,9 +30,29 @@ export default defineConfig({
   },
   plugins: [
     structureTool({ structure }),
+    colorInput(),
+    imageHotspotArrayPlugin(),
+    customDocumentActions(),
+    media(),
     // Vision is for querying with GROQ from inside the Studio
     // https://www.sanity.io/docs/the-vision-plugin
     visionTool({ defaultApiVersion: apiVersion }),
     markdownSchema()
-  ]
+  ],
+  form: {
+    file: {
+      assetSources: (previousAssetSources) => {
+        return previousAssetSources.filter(
+          (assetSource) => assetSource !== mediaAssetSource
+        );
+      }
+    },
+    image: {
+      assetSources: (previousAssetSources) => {
+        return previousAssetSources.filter(
+          (assetSource) => assetSource === mediaAssetSource
+        );
+      }
+    }
+  }
 });

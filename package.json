@@ -42,6 +42,7 @@
     "sanity": "^3.60.0",
     "sanity-plugin-hotspot-array": "^2.1.0",
     "sanity-plugin-markdown": "^5.0.0",
+    "sanity-plugin-media": "^2.3.2",
     "server-only": "^0.0.1",
     "slug": "^10.0.0",
     "slugify": "^1.6.6",
