@@ -3,6 +3,7 @@ import StartupCard, { StartupTypeCard } from "@/components/StartupCard";
 import { STARTUPS_QUERY } from "@/sanity/lib/queries";
 import { sanityFetch, SanityLive } from "@/sanity/lib/live";
 import { auth } from "@/auth";
+import { getProduct } from "@/sanity/lib/getProductBySlug";
 
 export default async function Home({
   searchParams
@@ -14,12 +15,12 @@ export default async function Home({
 
   const session = await auth();
 
-  console.log("session", session);
-
   console.log(session?.id);
 
   const { data: posts } = await sanityFetch({ query: STARTUPS_QUERY, params });
 
+  const productSlug = await getProduct("poorboys-spray-and-wipe-473ml", false);
+  console.log("productSlug", productSlug);
   console.log("posts", posts);
   return (
     <>
